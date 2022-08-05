@@ -14,18 +14,45 @@ html {
 3. Màu sắc
 4. Kiểu dáng (kiểu chữ, hình tròn, vuông,...) */
 
-.clear {
-    clear: both;
-}
 
 /* Common */
 .text-white {
     color: #fff !important;
 }
 
+.text-center {
+    text-align: center !important;
+}
+
+.float-right {
+    float: right !important;
+}
+
+.btn {
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 16px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 15px;
+    border: none;
+}
+
+.btn:hover {
+    color: #000;
+    background-color: #ccc;
+}
+
 .row {
     margin-left: -8px;
     margin-right: -8px;
+}
+
+.row::after {
+    content: "";
+    display: block;
+    clear: both;
 }
 
 .col {
@@ -34,10 +61,28 @@ html {
     padding-right: 8px;
 }
 
-/* Main */
-#main  {
-
+.col-half {
+    width: 50%;
 }
+
+.col-third {
+    width: 33.33333%;
+}
+
+.col-full {
+    width: 100%;
+}
+
+.mt-8 {
+    margin-top: 8px !important;
+}
+
+.mt-16 {
+    margin-top: 16px !important;
+}
+
+/* Main */
+#main {}
 
 #header {
     position: fixed;
@@ -58,7 +103,7 @@ html {
     display: block;
 }
 
-#nav > li > a {
+#nav>li>a {
     text-transform: uppercase;
 }
 
@@ -79,7 +124,7 @@ html {
 }
 
 #nav .subnav li:hover,
-#nav > li:hover > a {   
+#nav>li:hover>a {
     color: #000;
     background-color: #ccc;
 }
@@ -90,7 +135,7 @@ html {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #fff; 
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
 }
 
@@ -106,7 +151,7 @@ html {
 }
 
 #header .search-btn:hover {
-    background-color:#f44336;
+    background-color: #f44336;
     cursor: pointer;
 }
 
@@ -132,7 +177,7 @@ html {
     margin-top: 46px;
     padding-top: 50%;
     background: url('/assets/img/chicago.jpg') top center / cover no-repeat;
-}   
+}
 
 #slider .text-content {
     position: absolute;
@@ -155,13 +200,11 @@ html {
     font-weight: bolder;
 }
 
-#content {
-
-}
+#content {}
 
 #content .content-section {
     width: 800px;
-    padding: 70px 16px 108px 16px;
+    padding: 70px 0px 112px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -187,18 +230,14 @@ html {
     font-size: 15px;
     text-align: justify;
     line-height: 1.4;
-    letter-spacing: 1px ;
+    letter-spacing: 1px;
 }
 
 #content .member-list {
     margin-top: 56px;
 }
 
-#content .member-item {
-    float: left;
-    width: 33.33333%;
-    text-align: center;
-}
+
 
 #content .member-name {
     font-size: 15px;
@@ -218,7 +257,7 @@ html {
 .book-tickets {
     background-color: #fff;
     margin-top: 40px;
-    list-style: none;   
+    list-style: none;
 }
 
 .book-tickets li {
@@ -250,12 +289,9 @@ html {
 
 .places-list {
     margin-top: 32px;
-    margin-bottom: 48px;
+
 }
 
-.place-item {
-    width: 33.33333%;
-} 
 
 .place-img {
     width: 100%;
@@ -288,25 +324,68 @@ html {
     line-height: 1.4;
 }
 
-.place-buy-btn {
-    text-decoration: none;
-    background-color: #000;
-    color: #fff;
-    padding: 11px 16px;
-    margin-top: 30px;
-    cursor: pointer;
+
+/* Contact form */
+.contact-content {
+    margin-top: 48px;
+}
+
+.contact-info {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.contact-info i[class*="ti-"] {
+    width: 30px;
     display: inline-block;
-    margin-top: 15px;
-    border: none;
+
 }
 
-.place-buy-btn:hover {
-    color: #000;
-    background-color: #ccc;
+.contact-form {
+    font-size: 15px;
 }
 
+.contact-form .form-control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+/* Map section */
+.map-section img {
+    width: 100%;
+}
+
+.grayscale {
+    filter: grayscale(50%);
+}
+
+/* Footer section */
 #footer {
-    
+    padding: 64px 16px;
+    text-align: center;
+}
+
+#footer .socials-list {
+    font-size: 24px;
+}
+
+#footer .socials-list a {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+}
+
+#footer .socials-list a:hover {
+    opacity: 0.7;
+}
+
+#footer .copyright {
+    margin-top: 15px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+#footer .copyright a {
+    color: rgba(0, 0, 0, 0.6);
 }
 
 /* Modal */
@@ -323,7 +402,7 @@ html {
     justify-content: center;
 }
 
-.open{
+.open {
     display: flex;
 }
 
@@ -355,6 +434,7 @@ html {
 .modal-close:hover {
     background-color: #f44336;
 }
+
 .modal-close {
     position: absolute;
     right: 0px;
@@ -380,7 +460,7 @@ html {
     width: 100%;
     padding: 10px;
     font-size: 15px;
-}   
+}
 
 #buy-tickets {
     background: #009688;
@@ -403,7 +483,7 @@ html {
 .modal-footer {
     float: right;
     margin: 32px 16px 0;
-    
+
 }
 
 .modal-footer a {
@@ -415,8 +495,9 @@ html {
         opacity: 0;
         transform: translateY(-140px)
     }
+
     to {
         opacity: 1;
         transform: translateY(0)
     }
-}   
+}

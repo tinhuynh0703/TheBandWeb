@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>_TheBand</title>
+    <title>The Band</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
 </head>
 
@@ -20,24 +21,28 @@
                 <li><a href="#tourdates">Tour</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
-                    <a href="">
+                    <a href="#">
                         More
                         <i class="nav-arrow-down ti-angle-down"></i>
                     </a>
                     <ul class="subnav">
-                        <li><a href="">Merchandise</a></li>
-                        <li><a href="">Extras</a></li>
-                        <li><a href="">Media</a></li>
+                        <li><a href="#">Merchandise</a></li>
+                        <li><a href="#">Extras</a></li>
+                        <li><a href="#">Media</a></li>
                     </ul>
                 </li>
             </ul>
             <!-- end nav -->
 
-            <!-- begin search -->
+            <!-- Mobile menu button -->
+            <div id="mobile-menu" class="mobile-menu-btn"><i class="ti-menu"></i></div>
+
+            <!-- Search button -->
             <div class="search-btn">
                 <i class="search-icon ti-search"></i>
             </div>
-            <!-- end search -->
+
+
         </div>
 
         <div id="slider">
@@ -70,17 +75,17 @@
                     consequat.
                 </p>
                 <div class="row member-list">
-                    <div class="col col-third text-center">
+                    <div class="col col-third s-col-full mt-32 text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/bandmember.jpg" alt="Name" class="member-img">
                     </div>
 
-                    <div class="col col-third text-center">
+                    <div class="col col-third s-col-full mt-32 text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/bandmember.jpg" alt="Name" class="member-img">
                     </div>
 
-                    <div class="col col-third text-center">
+                    <div class="col col-third s-col-full mt-32 text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/bandmember.jpg" alt="Name" class="member-img">
                     </div>
@@ -103,7 +108,7 @@
 
                     <!-- Places -->
                     <div class="row places-list">
-                        <div class="col col-third">
+                        <div class="col mt-16 s-col-full col-third">
                             <img src="./assets/img/newyork.jpg" alt="New York" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">New York</h3>
@@ -113,7 +118,7 @@
                             </div>
                         </div>
 
-                        <div class="col col-third">
+                        <div class="col mt-16 s-col-full col-third">
                             <img src="./assets/img/paris.jpg" alt="Paris" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">Paris</h3>
@@ -123,7 +128,7 @@
                             </div>
                         </div>
 
-                        <div class="col col-third">
+                        <div class="col mt-16 s-col-full col-third">
                             <img src="./assets/img/sanfran.jpg" alt="San Fran" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">San Francisco</h3>
@@ -143,24 +148,24 @@
                 <p class="section-subheading">Fan? Drop a note!</p>
 
                 <div class="row contact-content">
-                    <div class="col col-half contact-info">
+                    <div class="col col-half s-col-full contact-info">
                         <p><i class="ti-location-pin"></i>Chicago, US</p>
-                        <p><i class="ti-mobile"></i>Phone: +00 151515</p>
-                        <p><i class="ti-email"></i>Email: mail@mail.com</p>
+                        <p><i class="ti-mobile"></i>Phone: <a href="tel:+00 151515">+00 151515</a></p>
+                        <p><i class="ti-email"></i>Email: <a href="mailto: mail@mail.com">mail@mail.com</a></p>
 
                     </div>
-                    <div class="col col-half contact-form">
+                    <div class="col col-half s-col-full contact-form">
                         <form action="">
                             <div class="row">
-                                <div class="col col-half">
+                                <div class="col col-half s-col-full">
                                     <input type="text" name="" required placeholder="Name" id="" class="form-control">
                                 </div>
-                                <div class="col col-half">
+                                <div class="col col-half s-mt-8 s-col-full">
                                     <input type="email" name="" required placeholder="Email" id="" class="form-control">
                                 </div>
                             </div>
                             <div class="row mt-8">
-                                <div class="col col-full">
+                                <div class="col col-half col-full">
                                     <input type="text" name="" required placeholder="Message" id=""
                                         class="form-control">
                                 </div>
@@ -191,6 +196,41 @@
             <p class="copyright">Powered by <a href="">w3.css</a></p>
         </div>
     </div>
+
+    <script>
+        var header = document.getElementById('header');
+        var menu = document.getElementById('mobile-menu')
+        var headerHeight = header.clientHeight
+
+
+        // Đóng/ mở mobile menu
+        menu.onclick = function () {
+            var isClosed = header.clientHeight === headerHeight
+            if (isClosed) {
+                header.style.height = 'auto';
+            } else {
+                header.style.height = null;
+            }
+
+        }
+
+        // Tự động đóng khi chọn menu
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]')
+        for (var i = 0; i < menuItems.length; i++) {
+            var menuItem = menuItems[i]
+            menuItem.onclick = function (e) {
+                var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav')
+                if (isParentMenu) {
+                    e.preventDefault()
+                } else {
+                    header.style.height = null;
+                }
+            }
+
+        }
+
+
+    </script>
 
     <div class="modal js-modal">
         <div class="modal-container js-modal-container">
